@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+<html lang="en">
+	<head>
+		<title>Tanks!</title>
+	</head>
+	<body>
+		<canvas id="gameBoard" width="578" height="200"></canvas>
+		<script>
+			var canvas = document.getElementById('gameBoard');
+			var context = canvas.getContext('2d');
+			var img = new Image();
+
+			img.onload = function(){
+				context.drawImage(img,0,0);
+			};
+			img.src = 'tank.jpg';
+		</script>
+	</body>
+</html>
