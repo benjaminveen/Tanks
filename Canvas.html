@@ -2,18 +2,50 @@
 <html lang="en">
 	<head>
 		<title>Tanks!</title>
+		<style>
+			#button{
+				position: absolute;
+				top: 5px;
+				left: 10px;
+			}
+			#button > input{
+				padding:10px;
+				display:block;
+				margin-top:5px;
+			}
+		</style>
 	</head>
 	<body>
 		<canvas id="gameBoard" width="578" height="200"></canvas>
+		<div id = "button">
+			<input type="button" id="clear" value="Clear">
+			<input type="button" id="redraw" value="Redraw">
+		</div>
 		<script>
 			var canvas = document.getElementById('gameBoard');
 			var context = canvas.getContext('2d');
-			var img = new Image();
 
-			img.onload = function(){
-				context.drawImage(img,0,0);
-			};
-			img.src = 'tank.jpg';
+			context.beginPath();
+     	 	context.rect(188, 50, 200, 100);
+     	 	context.fillStyle = 'yellow';
+      	 	context.fill();
+      	 	context.lineWidth = 7;
+      	 	context.strokeStyle = 'black';
+      	 	context.stroke();
+
+			document.getElementById('clear').addEventListener('click', function() {
+        	context.clearRect(0, 0, canvas.width, canvas.height);
+      		}, false);
+
+      		document.getElementById('redraw').addEventListener('click', function(){
+      			context.beginPath();
+      			context.rect(188,50,200,100);
+      			context.fillStyle='green';
+      			context.fill();
+      			context.lineWidth=5;
+      			context.strokeStyle='blue';
+      			context.stroke();
+      		}, false);
 		</script>
 	</body>
 </html>
